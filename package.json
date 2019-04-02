@@ -1,11 +1,11 @@
 {
-  "name": "graphql-directive-templete",
+  "name": "terminal-graphql-directives",
   "version": "0.1.0",
-  "description": "GraphQL directive template",
-  "main": "index.js",
+  "description": "GraphQL directives for Terminal.co",
+  "main": "dist/index.js",
   "repository":
-    "git@github.com:graphql-community/graphql-directive-template.git",
-  "author": "Czysty <lukasz.czyszczonik@gmail.com>",
+    "git@github.com:Terminal-Systems/terminal-graphql-directives.git",
+  "author": "Terminal.co",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon example/index.js",

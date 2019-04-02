@@ -1,4 +1,4 @@
-# graphql-directive-template
+# terminal-graphql-directive
 
 [![Version][version-badge]][package]
 [![downloads][downloads-badge]][npmtrends]
@@ -21,7 +21,7 @@ This is template for creating graphql directives
 # Installation
 
 ```
-yarn add graphql-directive-template
+yarn add terminal-graphql-directives
 ```
 
 # Usage
@@ -46,7 +46,7 @@ Run yarn test (try `--watch` flag) for unit tests (we are using Jest)
 
 # LICENSE
 
-The MIT License (MIT) 2018 - Luke Czyszczonik - <mailto:lukasz.czyszczonik@gmail.com>
+The MIT License (MIT) 2018 - Terminal.co
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
