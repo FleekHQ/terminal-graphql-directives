@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable func-names */
 
@@ -7,24 +8,32 @@ import { SchemaDirectiveVisitor } from 'graphql-tools';
 import {
   defaultFieldResolver,
   GraphQLString,
+  GraphQLDirective,
+  DirectiveLocation,
 } from 'graphql';
 
 class RequiresAuth extends SchemaDirectiveVisitor {
+  static getDirectiveDeclaration(directiveName, _schema) {
+    return new GraphQLDirective({
+      name: directiveName,
+      locations: [DirectiveLocation.FIELD_DEFINITION],
+      args: {},
+    });
+  }
+
   visitFieldDefinition(field) {
     const { resolve = defaultFieldResolver } = field;
 
     // eslint-disable-next-line no-param-reassign
-    field.resolve = async function (
+    field.resolve = async function(
       source,
       { format, ...otherArgs },
       context,
-      info,
+      info
     ) {
       // TODO: @dmolina79 add check for security session support
       if (context.user && context.user.id) {
-        return resolve.call(
-          this, source, otherArgs, context, info,
-        );
+        return resolve.call(this, source, otherArgs, context, info);
       }
       // if field is required we need to change it to non required
       if (field.astNode.type.kind === 'NonNullType') {
