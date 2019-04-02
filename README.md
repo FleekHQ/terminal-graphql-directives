@@ -50,12 +50,8 @@ The MIT License (MIT) 2018 - Terminal.co
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
-[build-badge]: https://img.shields.io/travis/graphql-community/graphql-directive-rest.svg?style=flat-square
-[build]: https://travis-ci.org/graphql-community/graphql-directive-rest
-[coverage-badge]: https://img.shields.io/codecov/c/github/graphql-community/graphql-directive-rest.svg?style=flat-square
-[coverage]: https://codecov.io/github/graphql-community/graphql-directive-rest
-[version-badge]: https://img.shields.io/npm/v/graphql-directive-rest.svg?style=flat-square
-[package]: https://www.npmjs.com/package/graphql-directive-rest
+<!-- [version-badge]: https://img.shields.io/npm/v/graphqve-restl-directive-rest.svg?style=flat-square
+[package]: https://www.npmjs.com/package/graphql-directi
 [downloads-badge]: https://img.shields.io/npm/dm/graphql-directive-rest.svg?style=flat-square
 [npmtrends]: http://www.npmtrends.com/graphql-directive-rest
 [license-badge]: https://img.shields.io/npm/l/graphql-directive-rest.svg?style=flat-square
@@ -63,5 +59,5 @@ The MIT License (MIT) 2018 - Terminal.co
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
 [donate-badge]: https://img.shields.io/badge/$-support-green.svg?style=flat-square
-[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
+[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square -->
 [coc]: https://github.com/graphql-community/graphql-directive-rest/blob/master/CODE_OF_CONDUCT.md
