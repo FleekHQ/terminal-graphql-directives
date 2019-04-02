@@ -16,7 +16,7 @@ class RequiresAuth extends SchemaDirectiveVisitor {
   static getDirectiveDeclaration(directiveName, _schema) {
     return new GraphQLDirective({
       name: directiveName,
-      locations: [DirectiveLocation.FIELD_DEFINITION],
+      locations: [DirectiveLocation.FIELD, DirectiveLocation.FIELD_DEFINITION],
       args: {},
     });
   }
