@@ -1,6 +1,6 @@
 {
   "name": "terminal-graphql-directives",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "GraphQL directives for Terminal.co",
   "main": "dist/index.js",
   "repository": "git@github.com:Terminal-Systems/terminal-graphql-directives.git",
