@@ -1,5 +1,5 @@
 import { makeExecutableSchema } from 'graphql-tools';
-import  { requiresAuth } from '../../src/index';
+import  { requiresAuth } from '../../index';
 
 const persons = [
   {

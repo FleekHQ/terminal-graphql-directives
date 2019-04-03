@@ -1,4 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-import requiresAuth from './src/requires-auth';
+const requiresAuth = require('./src/requires-auth');
 
-export { requiresAuth };
+module.exports = { requiresAuth };

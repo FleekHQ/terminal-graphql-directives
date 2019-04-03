@@ -4,13 +4,13 @@
 
 // DEV NOTE: follows examples from this blog post
 // https://blog.apollographql.com/reusable-graphql-schema-directives-131fb3a177d1
-import { SchemaDirectiveVisitor } from 'graphql-tools';
-import {
+const { SchemaDirectiveVisitor } = require('graphql-tools');
+const {
   defaultFieldResolver,
   GraphQLString,
   GraphQLDirective,
   DirectiveLocation,
-} from 'graphql';
+} = require('graphql');
 
 class RequiresAuth extends SchemaDirectiveVisitor {
   static getDirectiveDeclaration(directiveName, _schema) {
@@ -45,4 +45,4 @@ class RequiresAuth extends SchemaDirectiveVisitor {
   }
 }
 
-export default RequiresAuth;
+module.exports = RequiresAuth;
