@@ -26,7 +26,7 @@ describe('RequiresAuth directive test', () => {
     stop(app, done);
   });
 
-  it('requireAuth: should return null on field with directive when no user session', async (done) => {
+  it('requireAuth: should return null/message string on field with directive when no user session', async (done) => {
     // setup
 
     testCtx.user = null;
@@ -40,6 +40,7 @@ describe('RequiresAuth directive test', () => {
           secretField
           requiredSecretField
           requiredIntSecret
+          requiredSecretFieldWithMsg
         }
       }
     `;
@@ -58,8 +59,11 @@ describe('RequiresAuth directive test', () => {
     expect(testPerson.personID).toEqual(1);
     expect(testPerson.name).toEqual('Dave');
     expect(testPerson.secretField).toBeNull();
-    expect(testPerson.requiredSecretField).toBeNull();
-    expect(testPerson.requiredIntSecret).toBeNull();
+    expect(testPerson.requiredSecretField).toEqual('hidden field');
+    expect(testPerson.requiredIntSecret).toEqual('hidden field');
+    // TODO: this should accept a message for argument
+    expect(testPerson.requiredSecretFieldWithMsg).toEqual('hidden field');
+
 
     done();
   });

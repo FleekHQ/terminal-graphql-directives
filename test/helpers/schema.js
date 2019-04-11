@@ -37,6 +37,7 @@ const typeDefs = `
     name: String
     secretField: String @requiresAuth
     requiredSecretField: String! @requiresAuth
+    requiredSecretFieldWithMsg: String! @requiresAuth
     requiredIntSecret: Int! @requiresAuth
   }`;
 
