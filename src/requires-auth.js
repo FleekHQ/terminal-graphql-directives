@@ -12,18 +12,22 @@ const {
   DirectiveLocation,
 } = require('graphql');
 
+const DEFAULT_MESSAGE = 'hidden field';
+
 class RequiresAuth extends SchemaDirectiveVisitor {
   static getDirectiveDeclaration(directiveName, _schema) {
     return new GraphQLDirective({
       name: directiveName,
       locations: [DirectiveLocation.FIELD, DirectiveLocation.FIELD_DEFINITION],
-      args: {},
     });
   }
 
   visitFieldDefinition(field) {
     const { resolve = defaultFieldResolver } = field;
-
+    // TODO: fix this to work with argument message
+    // for some reason is not working
+    const { message } = this.args;
+    let result;
     // eslint-disable-next-line no-param-reassign
     field.resolve = async function(
       source,
@@ -38,9 +42,11 @@ class RequiresAuth extends SchemaDirectiveVisitor {
       // if field is required we need to change it to non required
       if (field.astNode.type.kind === 'NonNullType') {
         field.type = GraphQLString;
+        // we return a default message if field is required
+        return message || DEFAULT_MESSAGE;
       }
-      // question: do we want to throw auth error or return null?
-      return null;
+
+      return result;
     };
   }
 }
