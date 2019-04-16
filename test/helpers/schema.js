@@ -26,7 +26,9 @@ const persons = [
 ];
 
 const typeDefs = `
-  directive @requiresAuth on FIELD | FIELD_DEFINITION
+  directive @requiresAuth(
+    defaultValue: String = "hidden field"
+  ) on FIELD | FIELD_DEFINITION
 
   type Query {
     people: [Person]
@@ -37,8 +39,8 @@ const typeDefs = `
     name: String
     secretField: String @requiresAuth
     requiredSecretField: String! @requiresAuth
-    requiredSecretFieldWithMsg: String! @requiresAuth
-    requiredIntSecret: Int! @requiresAuth
+    requiredSecretFieldWithMsg: String! @requiresAuth(defaultValue: "my default value")
+    requiredIntSecret: Int! @requiresAuth(defaultValue: "0")
   }`;
 
 const resolvers = {

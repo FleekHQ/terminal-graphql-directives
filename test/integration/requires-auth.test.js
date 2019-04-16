@@ -60,10 +60,8 @@ describe('RequiresAuth directive test', () => {
     expect(testPerson.name).toEqual('Dave');
     expect(testPerson.secretField).toBeNull();
     expect(testPerson.requiredSecretField).toEqual('hidden field');
-    expect(testPerson.requiredIntSecret).toEqual('hidden field');
-    // TODO: this should accept a message for argument
-    expect(testPerson.requiredSecretFieldWithMsg).toEqual('hidden field');
-
+    expect(testPerson.requiredIntSecret).toEqual('0');
+    expect(testPerson.requiredSecretFieldWithMsg).toEqual('my default value');
 
     done();
   });

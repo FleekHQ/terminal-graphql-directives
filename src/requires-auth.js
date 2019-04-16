@@ -19,19 +19,23 @@ class RequiresAuth extends SchemaDirectiveVisitor {
     return new GraphQLDirective({
       name: directiveName,
       locations: [DirectiveLocation.FIELD, DirectiveLocation.FIELD_DEFINITION],
+      args: {
+        defaultValue: {
+          type: GraphQLString,
+        },
+      },
     });
   }
 
   visitFieldDefinition(field) {
     const { resolve = defaultFieldResolver } = field;
-    // TODO: fix this to work with argument message
-    // for some reason is not working
-    const { message } = this.args;
+
+    const { defaultValue } = this.args;
     let result;
     // eslint-disable-next-line no-param-reassign
     field.resolve = async function(
       source,
-      { format, ...otherArgs },
+      { value, ...otherArgs },
       context,
       info
     ) {
@@ -43,7 +47,7 @@ class RequiresAuth extends SchemaDirectiveVisitor {
       if (field.astNode.type.kind === 'NonNullType') {
         field.type = GraphQLString;
         // we return a default message if field is required
-        return message || DEFAULT_MESSAGE;
+        return defaultValue || DEFAULT_MESSAGE;
       }
 
       return result;
